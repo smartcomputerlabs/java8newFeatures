@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 /**
  * You can modify the objects of the collection not the collection itself or you can return an updated collection using java8 stream
+ * 
  * @author javacommunity.org
  * 
  */
