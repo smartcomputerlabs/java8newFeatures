@@ -5,6 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 
+/**
+ * @author javacommunity.org
+ *
+ */
 public class Java8ForEachExample {
 	public static void main(String[] args) {
 
