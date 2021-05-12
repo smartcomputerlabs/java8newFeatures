@@ -16,7 +16,7 @@ public class ModifyUnderLyingCollectionUsingStream {
 		
 		// -- Modify objects of the collection using stream
 		
-		// Create a list of shopping carts
+		// Create a list of shopping cart
 		List<ShoppingCart> shoppingCartList = Arrays.asList(new ShoppingCart("Soap",5), new ShoppingCart("Chocolate",1));
 		
 		// shopping carts item before changes
