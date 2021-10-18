@@ -1,10 +1,10 @@
 package java8newFeatures.collections;
-//test
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
-git remote
+
 /**
  * @author javacommunity.org
  *
