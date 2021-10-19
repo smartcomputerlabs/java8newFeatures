@@ -10,7 +10,7 @@ import java.util.function.Consumer;
  *
  */
 public class Java8ForEachExample {
-	public static void main(String[] args) {
+	public static void main(String[] args) {//test
 
 		// create a sample Collection of strings
 		List<String> listOfStrings = new ArrayList<String>();
