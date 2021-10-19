@@ -9,7 +9,7 @@ import java.util.function.Consumer;
  * @author javacommunity.org
  *
  */
-public class Java8ForEachExample {
+public class Java8ForEachExample {//test
 	public static void main(String[] args) {
 
 		// create a sample Collection of strings
