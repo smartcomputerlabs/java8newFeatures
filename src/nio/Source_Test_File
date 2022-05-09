@@ -1,0 +1,2019 @@
+$(document).ready(function () {
+
+    // slides ------------------------------------------------------------------------------------
+
+    $(function() {
+        $('#slides').slidesjs({
+            height : 3200,
+            navigation : false,
+            pagination : false,
+            effect : {
+                fade : {
+                    speed : 400
+                }
+            },
+            callback : {
+                start : function(number) {
+                    $("#slider_content1,#slider_content2").fadeOut(500);
+                },
+                complete : function(number) {
+                    $("#slider_content" + number).delay(500).fadeIn(1000);
+                }
+            },
+            play : {
+                active : false,
+                auto : true,
+                interval : 20000,
+                pauseOnHover : true,
+                effect : "fade"
+            }
+        });
+
+        ;
+        (function($, window, document, undefined) {
+            $.fn.doubleTapToGo = function(params) {
+                if (!('ontouchstart' in window)
+                    && !navigator.msMaxTouchPoints
+                    && !navigator.userAgent.toLowerCase().match(
+                        /windows phone os 7/i))
+                    return false;
+
+                this.each(function() {
+                    var curItem = false;
+
+                    $(this).on('click', function(e) {
+                        var item = $(this);
+                        if (item[0] != curItem[0]) {
+                            e.preventDefault();
+                            curItem = item;
+                        }
+                    });
+
+                    $(document).on('click touchstart MSPointerDown', function(e) {
+                        var resetItem = true, parents = $(e.target).parents();
+
+                        for (var i = 0; i < parents.length; i++)
+                            if (parents[i] == curItem[0])
+                                resetItem = false;
+
+                        if (resetItem)
+                            curItem = false;
+                    });
+                });
+                return this;
+            };
+        })(jQuery, window, document);
+    });
+    $('#create_new_file').click(function (){
+        $('#new_file_div').attr('class', 'show');
+        // $('#new-package').attr('class', 'file');
+        // $('#new-file').attr('class', 'file');
+        $('#enable_update_content').attr('class', 'file');
+        $('#update_content').prop('class', 'hide');
+        //$('#package').prop('class', 'hide');
+        //  $('#file').prop('class', 'hide');
+    });
+    $('#enable_update_content').click(function (){
+        $('#enable_update_content').attr('class', 'hide');
+        //  $('#new-package').attr('class', 'hide');
+        //  $('#new-file').attr('class', 'hide');
+        $('#update_content').prop('class', 'file');
+        // $('#package').prop('class', 'file');
+        //   $('#file').prop('class', 'file');
+        $('#new_file_div').attr('class', 'hide');
+    });
+
+});
+function left(){
+    //var x = $(window).height()*.835;
+    document.write(
+        //"<div id='left' style='height:"+x+"px'><div id='slides' class='container'>"+
+        "<div id='slides' style='overflow:visible!important;'>"+
+        "<article id='slider_content1' class='slideImages'>"+
+        "<h3>Cloud Computing</h3>" +
+        "<p>Cloud computing is the practice of using a network of remote servers hosted on the Internet to store, manage, and process data, rather than a local server or a personal computer." +
+        " It enables companies to consume a compute resource, such as a software development platforms, virtual machine (VM), storage or an application, analytics as a utility -- just like a " +
+        "gas connection -- rather than having to build and maintain computing infrastructures in house." +
+        "</p>"+
+        "<input type='button' id='cloud-computing2' style='display:block;height: 25px;float: right;background-color: coral;width: 100px;' value='Know More'></input>"+
+        "</article>"+
+        "<article id='slider_content2' class='slideImages'>" +
+        "<h3>Embedded BI</h3>"+
+        "<p>Embedded BI (business intelligence) is the integration of self-service BI tools into commonly used business applications." +
+        "Some forms of embedded BI extend functionality to mobile devices to ensure a distributed workforce can have access to identical business intelligence " +
+        "for collaborative efforts in real time."+
+        "</p> "+
+        "<input type='button' id='embedded-bi'  style=' display:block;height: 25px;float: right;background-color: coral;width: 100px;' value='Know More'></input>"+
+        "</article>"+
+        "<article id='slider_content3' class='slideImages'>" +
+        "<h3>Mobile Apps</h3>"+
+        "<p>A mobile application software or mobile app is an application software designed to run on mobile devices such as smartphones" +
+        " and tablet computers</p>"+
+        "<input type='button' id='mobile-apps'  style=' display:block;height: 25px;float: right;background-color: coral;width: 100px;' value='Know More'></input>"+
+        "</article>"+
+        //"<article id='slider_content4' class='slideImages'><h3>Artificial Intelligence</h3>" +    "<p>SaaS is a software licensing and delivery model in which software is licensed " +
+        //"on a subscription basis and is centrally hosted. It is sometimes referred to " + "as on-demand software.</p><a class='button' href='#' id='ai'>Know More</a></article>" +
+        //"</div>
+        "</div>");
+}
+function head() {
+    document.write("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>"+
+        "<link rel='stylesheet' href='../css/style.css'/>"+
+        "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'/>"+
+        "<link rel='stylesheet' type='text/css' href='../css/style_newnav.css'>"+
+        "<script src='https://kit.fontawesome.com/64d58efce2.js' crossorigin='anonymous'></script>"+
+        "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>"+
+        "<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'></script>"+
+        "<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>"+
+        "<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>"+
+        "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>"+
+        "<script src='https://code.jquery.com/jquery-1.12.0.min.js'></script>"+
+        "<link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css'>"+
+        "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>"+
+        "<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>"+
+        "<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>"+
+        "<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js'></script>"+
+        "<script src='http://code.jquery.com/jquery-latest.js'></script> "+
+        "<meta name='viewport' content='width=device-width, initial-scale=1'>"+
+        "<meta name='keywords' content=''>"+
+        "<meta name='description' content=''>"+
+        "<script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>"+
+        "<title>IT Solutions And Consulting</title>"+
+        "<!-- Favicons -->"+
+        "<link rel='icon' sizes='16x16' type='image/png' href='../img/favicon.png'>"+
+        "<link rel='apple-touch-icon' href='../img/apple-touch-icon.png'>"+
+        "<link rel='apple-touch-icon' sizes='72x72' href='../img/apple-touch-icon-72x72.png' />"+
+        "<link rel='apple-touch-icon' sizes='114x114' href='../img/apple-touch-icon-114x114.png'/>"+
+        "<!-- Icons -->"+
+        "<link rel='stylesheet' href='../css/font-awesome.min.css' type='text/css'/>"+
+        "<!-- CSS Implementing Plugins -->"+
+        "<link rel='stylesheet' href='../css/animate.css' type='text/css'/>"+
+        "<link rel='stylesheet' href='../css/lity.min.css' type='text/css'/>"+
+        "<link rel='stylesheet' href='../css/owl.carousel.min.css' type='text/css'/>"+
+        "<link rel='stylesheet' href='../css/owl.theme.default.min.css' type='text/css'/>"+
+        "<!-- CSS Global Compulsory -->"+
+        "<link rel='stylesheet' href='../css/bootstrap.min.css' type='text/css'/>"+
+        "<link rel='stylesheet' href='../css/1_style.css' type='text/css'/>"+
+        "<script type='text/javascript' charset='UTF-8' src='../js/common.js.download'></script>"+
+        "<script type='text/javascript' charset='UTF-8' src='../js/util.js.download'></script>"+
+        "<script type='text/javascript' charset='UTF-8' src='../js/onion.js.download'></script>"+
+        "<script type='text/javascript' charset='UTF-8' src='../js/stats.js.download'></script>"+
+        "<script type='text/javascript' charset='UTF-8' src='../js/controls.js.download'></script>");
+}
+function head_1(){
+    document.write("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>"+
+        "<link rel='stylesheet' href='../css/style.css'/>"+
+        "<link rel='stylesheet' href='../css/style_footer.css'/>"+
+        "<link rel='stylesheet' href='../css/comments.css'/>"+
+        "<link rel='stylesheet' type='text/css' href='../css/boxicons.min.css'>"+
+        "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'/>"+
+
+        "<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'></script>"+
+        "<link rel='stylesheet' type='text/css' href='../css/style_newnav.css'>"+
+        "<script src='https://kit.fontawesome.com/64d58efce2.js' crossorigin='anonymous'></script>"+
+        "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>"+
+
+        "<link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css'>"+
+        "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>"+
+
+
+        "<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js'></script>"+
+
+        "<meta name='viewport' content='width=device-width, initial-scale=1'>"+
+        "<meta name='keywords' content=''>"+
+        "<meta name='description' content=''>"+
+        "<script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>"+
+        "<!-- Favicons -->"+
+        "<link rel='icon' sizes='16x16' type='../image/png' href='../img/favicon.png'>"+
+        "<link rel='apple-touch-icon' href='../img/apple-touch-icon.png'>"+
+        "<link rel='apple-touch-icon' sizes='72x72' href='../img/apple-touch-icon-72x72.png' />"+
+        "<link rel='apple-touch-icon' sizes='114x114' href='../img/apple-touch-icon-114x114.png'/>"+
+        "<!-- Icons -->"+
+        "<link rel='stylesheet' href='../css/font-awesome.min.css' type='text/css'/>"+
+        "<!-- CSS Implementing Plugins -->"+
+        "<link rel='stylesheet' href='../css/animate.css' type='text/css'/>"+
+        "<link rel='stylesheet' href='../css/lity.min.css' type='text/css'/>"+
+        "<link rel='stylesheet' href='../css/owl.carousel.min.css' type='text/css'/>"+
+        "<link rel='stylesheet' href='../css/owl.theme.default.min.css' type='text/css'/>"+
+        "<!-- CSS Global Compulsory -->"+
+        "<link rel='stylesheet' href='../css/bootstrap.min.css' type='text/css'/>"+
+        "<link rel='stylesheet' href='../css/1_style.css' type='text/css'/>"+
+        " <script id='convertful-api' src='https://app.convertful.com/Convertful.js?owner=48567' async></script>"
+    );
+}
+function preloader(){
+    document.write("<div class='preloader' style='display: none;'>"+
+        "<div class='sk-cube-grid' style='display: none;'>"+
+        "<div class='sk-cube sk-cube1'></div>"+
+        "<div class='sk-cube sk-cube2'></div>"+
+        "<div class='sk-cube sk-cube3'></div>"+
+        "<div class='sk-cube sk-cube4'></div>"+
+        "<div class='sk-cube sk-cube5'></div>"+
+        "<div class='sk-cube sk-cube6'></div>"+
+        "<div class='sk-cube sk-cube7'></div>"+
+        "<div class='sk-cube sk-cube8'></div>"+
+        "<div class='sk-cube sk-cube9'></div>"+
+        "</div>"+
+        "</div>");
+}
+/*function new_nav(){
+    document.write("<header id='header'><div class='c-overlay header__img' style=''></div>"+
+     "<div class='c-overlay s-back-grad op88'></div><nav class='navbar navbar-default navbar-fixed-top nav-fixed-bg'>"+
+      "<div class='container'><div class='navbar-header'>"+
+      "<button type='button' class='navbar-toggle collapsed' data-toggle='collapse'data-target='#bs-example-navbar-collapse-1' aria-expanded='false'>"+
+            "<span class='sr-only'>Toggle navigation</span><span class='icon-bar'></span><span class='icon-bar'></span>"+
+            "<span class='icon-bar'></span></button>"+
+        "</div>"+
+        "<div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>"+
+          "<ul class='nav navbar-nav navbar-right' id='nav'>"+
+            "<li class='dropdown'>"+
+                  "<a href='' class='blog_tag'>Web Services</a>"+
+                   "<div class='menu'>"+
+                    "<a href ='../webservices/webservices-definition-and-best-practices.html' class='drop' id='webService-Architecture'>Definition And Best Practices</a>"+
+                    "<a href ='../webservices/soap-webservices-architecture.html' class='drop' id='soap-WebService'>Soap Web Service</a>"+
+                    "<a href ='../webservices/restful-webservices-architecture.html ' class='drop' id='restful-WebService'>RestFul Web Service</a>"+
+                    "<a href ='../webservices/java-ssl-cert-restful-ws-client.html' class='drop' id='ssl-restful-client'>RestFul WS Client With SSL Cert Auth</a>"+
+                  "</div>"+
+                "</li> "+
+               "<li class='dropdown'>"+
+                  "<a href='' class='blog_tag'>Java</a>"+
+                  "<div class='menu'>"+
+                    "<ul>"+
+                         "<li class='dropdow'>"+
+                           "<a href='../java/java9-new-features.html' class='blog_ta drop' id='java-9-new-features'>Java9 New Features</a>"+
+                            "<div class='men'>"+
+                                "<a href='../java/java9-new-feature-modules.html' class='drop' id ='java-9-modules'>Java-9-Modules</a>"+
+                           "</div>"+
+                         "</li>"+
+                       "</ul>"+
+                    "<a href='../java/java8-upgrade-exam-syllabus.html' class='drop' id='java8-upgrade-exam-syllabus'>Java SE 8 Programmer (1Z0-813)</a>"+
+                    "<a href='../java/java-hello-world.html' class='drop' id='java-hello-world'>Hello World</a>"+
+                    "<ul>"+
+                         "<li class='dropdow'>"+
+                           "<a href='' class='blog_ta drop' id='list1'>List</a>"+
+                           "<div class='men'>"+
+                                "<a href='../java/java-how-to-iterate-linked-list-forward-and-reverse.html' class='drop' id='iterate-linked-list'>Iterate Linked List</a>"+
+                                "<a href='../java/java-find-middle-element-in-linked-list-in-single-pass.html' class='drop' id='java-find-middle-element-in-linked-list-in-single-pass'>Find Middle Element in Linked List</a>"+
+                           "</div>"+
+                         "</li>"+
+                       "</ul>"+
+                  "</div>"+
+                "</li>"+
+                 "<li class='dropdown'>"+
+                  "<a href='' class='blog_tag'>NodeJs</a>"+
+                  "<div class='menu'>"+
+                    "<a href='../nodejs/nodejs-hello-world.html' class='drop' id='nodejs-hello-world'>HelloWorld</a>"+
+                    "<a href='../nodejs/nodejs-create-sqlite-database.html' class='drop' id='nodejs-sqliteDB'>Create SQLite DB</a>"+
+                    "<a href='../nodejs/nodejs-sign-in-app.html' class='drop' id='nodejs-signIn'>SignIn Form</a>"+
+                    "<a href='../nodejs/nodejs-manage-sessions.html' class='drop' id='nodejs-Session-Management'>Session</a>"+
+                  "</div>"+
+                "</li>"+
+                 "<li class='dropdown'>"+
+                  "<a href='' class='blog_tag'>J2EE</a>"+
+                   "<div class='menu'>"+
+                    "<a href='../jee/jee-jsp-definition-and-important-points.html' class='drop' id='jee-jsp-definition-and-important-points'>JSP Important Points</a>"+
+                  "</div>"+
+                "</li>"+
+                 "<li class='dropdown'>"+
+                  "<a href='' class='blog_tag'>Architecture</a>"+
+                  "<div class='menu'>"+
+                   "<a href='../architecture/oauth2-framework.html' class='drop' id='oauth2-arch'>OAuth 2.0</a>"+
+                    "<a href='../architecture/cloud-computing.html' class='drop' id='cloud-computing1'>Cloud Computing</a>"+
+                  "</div>"+
+                "</li>"+
+                "<li class='dropdown'>"+
+                  "<a href='' class='blog_tag'>Support</a>"+
+                  "<div class='menu'>"+
+                    "<a href='../admin/post-content.html' class='drop' id='post-content'>Post Content</a>"+
+                    "<a href='../admin/compile-and-run-code.html' class='drop' id='compile-and-run-code'>Compile & Run Code</a>"+
+                  "</div>"+
+                "</li>"+
+            "<li><a class='external -register' href='../index/index.html'>Back to Home</a></li>"+
+          "</ul>"+
+        "</div>"+
+      "</div>"+
+    "</nav>");
+}*/
+function add_head(){
+    document.write( );
+}
+function main(){
+    document.write("<main id='main'>"+
+        "<section id='blogs' class='blog s-section-padding s-section-alt'>"+
+        "<div class='container'>"+
+        "<div class='c-headline'>"+
+        "<span>Blog</span><h2>Read Latest Blog Post</h2>"+
+        "</div>"+
+        "<div class='row'>"+
+        "<div class='col-md-4'>"+
+        "<article class='blog__item wow fadeInLeft' style='visibility: visible; animation-name: fadeInLeft;'>"+
+        "<div class='blog__img'>"+
+        "<img src='../img/blog-img1.jpg' alt='Article Thumbnail'>"+
+        "</div>"+
+        "<div class='blog__content'>"+
+        "<h3>Web Services</h3>"+
+        "<li> <a href='../webservices/webservices-definition-and-best-practices.html' id=''>Definition And Best Practices</a></li>"+
+        "<li><a href='../webservices/soap-webservices-architecture.html' id=''>Soap Web Service</a></li>"+
+        "<li><a href='../webservices/restful-webservices-architecture.html ' id=''>RestFul Web Service</a></li>"+
+        "<li><a href='../webservices/java-ssl-cert-restful-ws-client.html' id=''>RestFul WS Client With SSL Cert Authentication</a></li>"+
+        "<div class='blog__content--tags'>"+
+        "<hr>"+
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>tutorial</a>"+
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>finance</a>"+
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>documents</a>"+
+        "</div>"+
+        "</div>"+
+        "</article>"+
+        "</div>"+
+        "<div class='col-md-4'>"+
+        "<article class='blog__item wow fadeInLeft'style='visibility: visible; animation-name: fadeInLeft;'>"+
+        "<div class='blog__img'>"+
+        "<img src='../img/blog-img2.jpg' alt='Article Thumbnail' style='width: 100%;'>"+
+        "</div>"+
+        "<div class='blog__content'>"+
+        "<h3>Java</h3>"+
+        "<li><a href='../java/java9-new-features.html' id=''>Java9 New Features</a></li>"+
+        "<li><a href='../java/java8-upgrade-exam-syllabus.html' id=''>Java SE 8 Programmer (1Z0-813)</a></li>"+
+        "<li><a href='../java/java-hello-world.html' id=''>Hello World</a></li>"+
+        "<li><a href='../java/java-how-to-iterate-linked-list-forward-and-reverse.html' id=''>List</a></li><hr>"+
+        "<div class='blog__content--tags'>"+
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>tutorial</a>"+
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>finance</a>"+
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>documents</a>"+
+        "</div>"+
+        "</div>"+
+        "</article>"+
+        "</div>"+
+        "<div class='col-md-4'>"+
+        "<article class='blog__item wow fadeInUp' style='visibility: visible; animation-name: fadeInUp;'>"+
+        "<div class='blog__img'>"+
+        "<img src='../img/blog-img3.1.png' alt='Article Thumbnail'>"+
+        "</div><br>"+
+        "<div class='blog__content'>"+
+        "<h3>NodeJs</h3>"+
+        "<li><a href='../nodejs/nodejs-hello-world.html' id=''>HelloWorld</a></li>"+
+        "<li><a href='../nodejs/nodejs-create-sqlite-database.html' id=''>Create SQLite DB</a></li>"+
+        "<li><a href='../nodejs/nodejs-sign-in-app.html' id=''>SignIn Form</a></li>"+
+        "<li><a href='../nodejs/nodejs-manage-sessions.html' id=''>Session</a></li><hr>"+
+        "<div class='blog__content--tags'>" +
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>tutorial</a>"+
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>finance</a>"+
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>documents</a>"+
+        "</div>"+
+        "</div>"+
+        "</article>"+
+        "</div>"+
+        "</div>"+
+        "<div class='row'>"+
+        "<div class='col-md-4'>"+
+        "<article class='blog__item wow fadeInLeft' style='visibility: visible; animation-name: fadeInLeft;'>"+
+        "<div class='blog__img'>"+
+        "<img src='../img/blog2.jpg' alt='Article Thumbnail'>"+
+        "</div>"+
+        "<div class='blog__content'>"+
+        "<h3>J2EE</h3>"+
+        "<li> <a href='../jee/jee-jsp-definition-and-important-points.html' id='j2_1'>JSP Important Points</a></li>"+
+        "<br><hr>"+
+        "<div class='blog__content--tags'>"+
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>tutorial</a>"+
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>finance</a>"+
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>documents</a>"+
+        "</div>"+
+        "</div>"+
+        "</article>"+
+        "</div>"+
+        "<div class='col-md-4'>"+
+        "<article class='blog__item wow fadeInRight' style='visibility: visible; animation-name: fadeInRight;'>"+
+        "<div class='blog__img'>"+
+        "<img src='../img/blog-img5.5.jpg' alt='Article Thumbnail'>"+
+        "</div>"+
+        "<div class='blog__content'>"+
+        "<h3>Architecture</h3>"+
+        "<li><a href='../design/oauth2-framework.html' id='arc_1'>OAuth 2.0</a></li>"+
+        "<li><a href='../design/cloud-computing.html' id='arc_2'>Cloud Computing</a></li>"+
+        "<li><a href='#'></a></li>"+
+        "<li><a href='#''></a></li><hr>"+
+        "<div class='blog__content--tags'>"+
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>tutorial</a>"+
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>finance</a>"+
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>documents</a>"+
+        "</div>"+
+        "</div>"+
+        "</article>"+
+        "</div>"+
+        "<div class='col-md-4'>"+
+        "<article class='blog__item wow fadeInRight' style='visibility: visible; animation-name: fadeInRight;'>"+
+        "<div class='blog__img'>"+
+        "<img src='../img/support.png' alt='Article Thumbnail' style='height: 300px;'>"+
+        "</div>"+
+        "<div class='blog__content'>"+
+        "<h3>Support</h3>"+
+        "<li><a href='../admin/post-content.html' id='supp_1'>Post Content</a></li>"+
+        "<li><a href='../admin/compile-and-run-code.html'>Compile & Run Code</a></li>"+
+        "<li><a href='#'></a></li>"+
+        "<li><a href='#'></a></li><hr>"+
+        "<div class='blog__content--tags'>"+
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>tutorial</a>"+
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>finance</a>"+
+        "<a href='http://www.smartcomputerlabs.com/index.html#' rel='tag'>documents</a>"+
+        "</div>"+
+        "</div></div>"+
+        "</article></div></div></div></section></main>");
+
+}
+
+function footer(){
+    document.write("<footer class='footer'><div class='container'>"+
+        "<ul class='c-social-icons footer__social'>"+
+        "<li><a href='http://www.smartcomputerlabs.com/index.html#'><i class='fa fa-facebook'></i></a></li>"+
+        "<li><a href='http://www.smartcomputerlabs.com/index.html#'><i class='fa fa-twitter'></i></a></li>"+
+        "<li><a href='http://www.smartcomputerlabs.com/index.html#'><i class='fa fa-google-plus'></i></a></li>"+
+        "<li><a href='http://www.smartcomputerlabs.com/index.html#'><i class='fa fa-linkedin'></i></a></li>"+
+        "<li><a href='http://www.smartcomputerlabs.com/index.html#'><i class='fa fa-youtube-play'></i></a></li>"+
+        "</ul>"+
+        "<p class='footer__copyright'>&#169;2016 SCL | All Rights Reserved."+
+        "</p> </div> </footer>");
+}
+
+
+function add_comment(){
+    document.write('<section id="comments" class="contact section-bg">'+
+        '<div class="row mt-5 justify-content-center">'+
+        '<div class="col-lg-10" style="width:100%;">'+
+        '<div class="section-title">'+
+        '<h2>Comments</h2>'+
+        '</div>'+
+        '<div class="" id="fbcomment">'+
+        '<div class="body_comment">'+
+        '<div class="row-comment">'+
+        '<div class="avatar_comment col-md-1" style="margin-top: 0%;">'+
+        '<img src="../img/user.png" alt="avatar"/>'+
+        '</div>'+
+        '<div class="box_comment col-md-11 d" style="width: 90%; margin-left:0%!important;margin-bottom: 2%;">'+
+        '<form class="form-comment">'+
+        '<textarea class="commentar" id ="textarea" placeholder="Add a comment..."></textarea>'+
+        ' <div class="box_post">'+
+        '<p><span id="error_textarea"></span></p>'+
+        '<div class="pull-right">'+
+        '<button  type="submit" value="submit" class="submit bt" id="submit" onclick="validateForm()">Post Comment</button>'+
+        '</div>'+
+        '<div class="order-input">'+
+        '<input type="text" name="text" class="commentTextBox" id="inputForName" placeholder="Enter Your Name Here...**"  onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)">'+
+        ' <p><span id="error_name"></span></p>'+
+        '<input type="email" name="email" class="commentEmail" id="inputForEmail" placeholder="Enter Your Email...**" >'+
+        '<p><span id="error_email"></span></p>'+
+        '</div>'+
+        '</div>'+
+        '</form>'+
+        '</div>'+
+        '</div>'+
+        '<div id="list_comment" class=""></div>'+
+        '<div class="box_result row-comment"></div>'+
+        '<div class="avatar_comment col-md-1"></div>'+
+        '<div class="result_comment col-md-11"></div>'+
+        '<div class="tools_comment"></div>'+
+        '<div class="child_replay"></div>'+
+        '<div class="box_reply row-comment"></div>'+
+        '<div class="avatar_comment col-md-1"></div>'+
+        '<div class="result_comment col-md-11"></div>'+
+        '<div class="tools_comment"></div>'+
+        '<div class="child_replay "></div>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</section>');
+}
+function footer_new(){
+    document.write('<footer id="footer">'+
+        '<div class="footer-top">'+
+        '<div class="container_footer">'+
+        '<div class="row">'+
+        '<div class="col-lg-3 col-md-6 footer-contact">'+
+        '<h1 style="font-size: 25px;">SmartComputerLabs</h1>'+
+        '<p>'+
+        'Gurgaon<br>'+
+        '<strong class="strong">Phone:</strong> 8128 13 8128<br>'+
+        '<strong class="strong">Email:</strong> navneet.rai@smartcomputerlabs.com<br>'+
+        '</p>'+
+        '</div>'+
+        '<div class="col-lg-2 col-md-6 footer-links">'+
+        '<h4>Useful Links</h4>'+
+        '<ul>'+
+        '<li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>'+
+        '<li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>'+
+        '<li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>'+
+        '<li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>'+
+        '<li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>'+
+        '</ul>'+
+        '</div>'+
+        '<div class="col-lg-3 col-md-6 footer-links">'+
+        '<h4>Our Services</h4>'+
+        '<ul>'+
+        '<li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>'+
+        '<li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>'+
+        '<li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>'+
+        '<li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>'+
+        '<li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>'+
+        '</ul>'+
+        '</div>'+
+        '<div class="col-lg-4 col-md-6 footer-newsletter">'+
+        '<h4>Join Our Newsletter</h4>'+
+        '<form action="" method="post">'+
+        '<input type="email" name="email"><input type="submit" value="Subscribe">'+
+        '</form>'+
+        ' </div>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '<div class="container_footer d-md-flex py-4 ">'+
+        '<div class="me-md-auto text-center text-md-start">'+
+        '<div class="copyright">'+
+        ' &copy; @ 2015-2021 Copyright <strong class="strong"><span>SmartComputerLabs.com</span></strong>. All Rights Reserved'+
+        '</div>'+
+        '</div>'+
+        ' <div class="social-links text-center text-md-right pt-3 pt-md-0">'+
+        '<a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>'+
+        '<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>'+
+        '<a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>'+
+        '<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>'+
+        '<a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>'+
+        '</div>'+
+        '</div>'+
+        '</footer>');
+}
+function code_button(){
+    document.write("<div id='code_div' class='hide'>"+
+        "<span>"+
+        "<button class='increase butn-2' id='increase' title='Increse Font Size' style=''>&plus;</button> |"+
+        "<button class='decrease butn-2' id='decrease' title='Decrese Font Size' style=''>&minus;</button> | "+
+        "<button class='resetMe butn-2'  id='resetMe' title='Reset to normal'>Reset</button>"+
+        "<select  title='Change Background Color' class='chge-btn butn-2' id='theme' style='width: 104px; height: 37px;' onchange='changeTheme()'>"+
+        "<option  value='github' id='github' selected='selected'>Github</option>"+
+        "<option value='cobalt' id='cobalt'>Cobalt</option>"+
+        "<option value='terminal' id='terminal'>Terminal</option>"+
+        "<option value='xcode' id='xcode'>xCode</option>"+
+        "<option value='tn' id='tn'>Tomorrow Night</option>"+
+
+        "</select>"+
+        "<button  class='fa copy butn-2' title='Copy Code'  id='copy' style='padding: 7.7px;'>&#xf0c5;</button>"+
+        // "<button  onclick='exe()' class='fa fa-play copy butn-2' title='Execute' style='padding: 7.7px;''></button>"+
+        "<label id='copy-message'></label>"+
+        "</span>"+
+        "</div>");
+}
+function Architect(){
+    var currentUrl = window.location.href;
+    document.write(  "<link rel='stylesheet' href='../css/style.css'/>"+
+        "<a href='#' class='a'><p class = 'b'>ARCHITECTURE</p></a>"+
+        "<p class='suggestedlink'>"+
+        "<a href='../design/oauth2-framework.html' class='a' id='oauth2-arch'>oauth2.0</a><br>"+
+        "<a href='../design/cloud-computing.html' class='a' id='cloud-computing1'>cloud Computing</a>"+
+        "</p>");}
+function WS(){
+    var currentUrl = window.location.href;
+    document.write("<link rel='stylesheet' href='../css/style.css'/>"+
+        "<a href='#' class='a'><p class ='b'>WEBSERVICES</p></a>"+
+        "<p class='suggestedlink'>"+
+        "<a href ='../webservices/webservices-definition-and-best-practices.html' class='a' id='webService-Architecture'>Definition And Best Practices</a><br>"+
+        "<a href ='../webservices/soap-webservices-architecture.html' class='a' id='soap-WebService'>Soap Web Service</a><br>"+
+        "<a href ='../webservices/restful-webservices-architecture.html ' class='a' id='restful-WebService'>RestFul Web Service</a><br>"+
+        "<a href ='../webservices/java-ssl-cert-restful-ws-client.html' class='a' id='ssl-restful-client'>RestFul WS Client With SSL Cert Auth</a>"+
+        "</p>" );
+}
+function JAVA(){
+    var currentUrl = window.location.href;
+    document.write("<link rel='stylesheet' href='../css/style.css'/>"+
+        " <a href='#' class='a'><p class ='b'>JAVA</p></a>"+
+        "<p class='suggestedlink'>"+
+        "<a href='../java/java9-new-features.html' class='a' id='java-9-new-features'>java9-new-features</a><BR>"+
+        "<a href='../java/java9-new-features-modules.html' class='a' id='java-9-modules'>java9-new-feature-modules</a><BR>"+
+        "<a href='../java/java8-upgrade-exam-syllabus.html' class='a' id='java8-upgrade-exam-syllabus'>java8-upgrade-exam-syllabus</a><BR>"+
+        "<a href='../java/java-hello-world.html' class='a' id='java-hello-world'>hello-world</a><BR>"+
+        "<a href='../java/java-how-to-iterate-linked-list-forward-and-reverse.html' class='a' id='iterate-linked-list'>java-how-to-iterate-linked-list-forward-and-reverse</a><BR>"+
+        "<a href='../java/java-how-to-iterate-linked-list-forward-and-reverse.html' class='a' id='iterate-linked-list'>Iterate Linked List</a><BR>"+
+        "</p>");
+}
+function NODEJS(){
+    var currentUrl = window.location.href;
+    document.write("<link rel='stylesheet' href='../css/style.css'/>"+
+        "<a href='#' class='a'><p class ='b'>NODEJS</p></a>"+
+        "<p class = 'suggestedlink'>"+
+        "<a href='../nodejs/nodejs-hello-world.html' class='a' id='nodejs-hello-world'>HelloWorld</a><BR>"+
+        "<a href='../nodejs/nodejs-create-sqlite-database.html' class='a' id='nodejs-sqliteDB'>Create SQLite DB</a><BR>"+
+        "<a href='../nodejs/nodejs-sign-in-app.html' class='a' id='nodejs-signIn'>SignIn Form</a><BR>"+
+        "<a href='../nodejs/nodejs-manage-sessions.html' class='a' id='nodejs-Session-Management'>Session</a><BR>"+
+        "</p>");
+}
+function Jee(){
+    var currentUrl = window.location.href;
+    document.write("<link rel='stylesheet' href='../css/style.css'/>"+
+        "<a href='#' class='a'><p class ='b'>J2EE</p></a>"+
+        "<p class = 'suggestedlink'>"+
+        "<a href='../jee/jee-jsp-definition-and-important-points.html' class='a' id='jee-jsp-definition-and-important-points'>JSP Important Points</a>"+
+        "</p>");
+}
+//---------------- Exam Related Starts -------------------------------------------------------------------------------------------------------------------
+var score=0;
+$('#score').click(function() {
+    alert("Your Score = "+score);
+});
+function getEasyExam(id) {
+    var items = document.getElementsByName('exam_type');
+    for (var i=0; i < items.length; i++) {
+        items[i].disabled = true;
+    }
+    if(id) {
+        //alert("---"+id);
+        for (var i=0; i < items.length; i++) {
+            items[i].className = 'btn-css marks-btn';
+        }
+        document.getElementById(id).className = 'btn-css active-btn';
+    }else{
+        id = 'Easy';
+    }
+//alert('ajax called');
+    $.ajax({
+        url: "http://localhost:8080/examdetail/"+id+"/1Z0-813/JAVA",
+        category : 'EASY',
+        type : "GET",
+        exam : '',
+        dataType: "json",
+        success: function(data) {
+            if(!data || data.length == 0){
+                for (var i=0; i < items.length; i++) {
+                    items[i].disabled = false;
+                }
+            }
+            var json1 = JSON.parse(JSON.stringify(data));
+            console.log(json1[0].option3);
+            var ans="";
+            var count=0;
+            $("#examText").empty();
+            for (var i=0;i<json1.length;++i)
+            {
+                count++;
+                var obj = json1[i];
+                var options="";
+                var multiple_ans=0;
+                if(!obj.answerDescription || obj.answerDescription == ''){
+                    obj.answerDescription = 'Explaining is being added, please visit again to see it.';
+                }
+                if(obj.has_multiple_ans == "0"){
+                    if(obj.option1 && obj.option1 != ''){
+                        options =options+'<label class="hideOptions" id="optionLabel'+count+'1"><input class="radio-btn" type="radio" name="answer'+count+'" id="id'+count+'1" value="option'+count+'1" />'+obj.option1+'</label><br>';
+                    }
+                    if(obj.option2 && obj.option2 != ''){
+                        options = options+'<label class="hideOptions" id="optionLabel'+count+'2"><input class="radio-btn" type="radio" name="answer'+count+'" id="id'+count+'2" value="option'+count+'2" />'+obj.option2+'</label><br>';
+                    }
+                    if(obj.option3 && obj.option3 != ''){
+                        options = options+'<label class="hideOptions" id="optionLabel'+count+'3"><input class="radio-btn" type="radio" name="answer'+count+'" id="id'+count+'3" value="option'+count+'3" />'+obj.option3+'</label><br>';
+                    }
+                    if(obj.option4 && obj.option4 != ''){
+                        options = options+'<label class="hideOptions" id="optionLabel'+count+'4"><input class="radio-btn" type="radio" name="answer'+count+'" id="id'+count+'4" value="option'+count+'4" />'+obj.option4+'</label><br>';
+                    }
+                    if(obj.option5 && obj.option5 != ''){
+                        options = options+'<label class="hideOptions" id="optionLabel'+count+'5"><input class="radio-btn" type="radio" name="answer'+count+'" id="id'+count+'5" value="option'+count+'5" />'+obj.option5+'</label><br>';
+                    }
+                    if(obj.option6 && obj.option6 != ''){
+                        options = options+'<label class="hideOptions" id="optionLabel'+count+'6"><input class="radio-btn" type="radio" name="answer'+count+'" id="id'+count+'6" value="option'+count+'6" />'+obj.option6+'</label><br>';
+                    }
+                    if(obj.option7 && obj.option7 != ''){
+                        options = options+'<label class="hideOptions" id="optionLabel'+count+'7"><input class="radio-btn" type="radio" name="answer'+count+'" id="id'+count+'7" value="option'+count+'7" />'+obj.option7+'</label><br>';
+                    }
+                    $("#examText").append('<div class="read">'
+                        +(i+1)+':'+obj.question+'</br></br>'+
+                        '<div class=option>'+options+ '</div>'+
+                        '<label class="ans" name = "'+obj.answer+'" ans="'+ans+'" style="display:none;margin-top:3%;" id="answer'+count+'" >'+
+                        'Answer : Option '+obj.answer+'</label><span id="span'+count+'"></span>'+
+                        '<br><button class="hide" id="ansDesc'+count+'" onclick="AnsDesc(&#39;AD'+count+'&#39;)">Answer Explanation</button>'+
+                        '<div class="ansD_div" id="AD'+count+'" style="display:none">'+obj.answerDescription+'</div>'+
+                        '<br>'+
+                        '<button class="exam_button" id="show'+count+'" onclick="showAns(&#39;answer'+count+'&#39;)" style="margin-right:3%;">Submit Answer</button>'+
+                        //'<button style="display:" id="hide'+count+'" class="exam_button" onclick="hideAns(&#39;answer'+count+'&#39;)">Hide Answer</button>'+
+                        '</br>'+
+                        '</div></br>');
+                }else{
+                    if(obj.option1 && obj.option1 != ''){
+                        options =options+'<label class="hideOptions" id="optionLabel'+count+'1"><input class="radio-btn" type="checkbox" name="answer'+count+'" id="id'+count+'1" value="option'+count+'1" />'+obj.option1+'</label><br>';
+                    }
+                    if(obj.option2 && obj.option2 != ''){
+                        options = options+'<label class="hideOptions" id="optionLabel'+count+'2"><input class="radio-btn" type="checkbox" name="answer'+count+'" id="id'+count+'2" value="option'+count+'2" />'+obj.option2+'</label><br>';
+                    }
+                    if(obj.option3 && obj.option3 != ''){
+                        options = options+'<label class="hideOptions" id="optionLabel'+count+'3"><input class="radio-btn" type="checkbox" name="answer'+count+'" id="id'+count+'3" value="option'+count+'3" />'+obj.option3+'</label><br>';
+                    }
+                    if(obj.option4 && obj.option4 != ''){
+                        options = options+'<label class="hideOptions" id="optionLabel'+count+'4"><input class="radio-btn" type="checkbox" name="answer'+count+'" id="id'+count+'4" value="option'+count+'4" />'+obj.option4+'</label><br>';
+                    }
+                    if(obj.option5 && obj.option5 != ''){
+                        options = options+'<label class="hideOptions" id="optionLabel'+count+'5"><input class="radio-btn" type="checkbox" name="answer'+count+'" id="id'+count+'5" value="option'+count+'5" />'+obj.option5+'</label><br>';
+                    }
+                    if(obj.option6 && obj.option6 != ''){
+                        options = options+'<label class="hideOptions" id="optionLabel'+count+'6"><input class="radio-btn" type="checkbox" name="answer'+count+'" id="id'+count+'6" value="option'+count+'6" />'+obj.option6+'</label><br>';
+                    }
+                    if(obj.option7 && obj.option7 != ''){
+                        options = options+'<label class="hideOptions" id="optionLabel'+count+'7"><input class="radio-btn" type="checkbox" name="answer'+count+'" id="id'+count+'7" value="option'+count+'7" />'+obj.option7+'</label><br>';
+                    }
+                    $("#examText").append('<div class="read">'
+                        +(i+1)+':'+obj.question+'</br></br>'+
+                        '<div class=option>'+options+ '</div>'+
+                        '<label class="ans" name = "'+obj.answer+'" ans="'+ans+'" style="display:none;margin-top:3%;" id="answer'+count+'" >'+
+                        'Answer : Option '+obj.answer+'</label><span id="span'+count+'"></span>'+
+                        '<br><button class="hide" id="ansDesc'+count+'" onclick="AnsDesc(&#39;AD'+count+'&#39;)">Answer Explanation</button>'+
+                        '<div class="ansD_div" id="AD'+count+'" style="display:none">'+obj.answerDescription+'</div>'+
+                        '<br>'+
+                        '<button class="exam_button" id="show'+count+'" onclick="showAns(&#39;answer'+count+'&#39;)" style="margin-right:3%;">Submit Answer</button>'+
+                        //'<button style="display:" id="hide'+count+'" class="exam_button" onclick="hideAns(&#39;answer'+count+'&#39;)">Hide Answer</button>'+
+                        '</br>'+
+                        '</div></br>');
+                }
+            }
+            console.log(data);
+            document.getElementById('totalQues').innerText = json1.length;
+            for (var i=0; i < items.length; i++) {
+                items[i].disabled = false;
+            }
+        },failure: function(data) {
+            for (var i=0; i < items.length; i++) {
+                items[i].disabled = false;
+            }
+        }
+    });
+}
+
+function showAns(id) {
+    //alert(e.getAttribute('name'));
+    if(!document.querySelector('input[name="'+id+'"]:checked')){
+        alert("Choose an option to see answer");
+        return;
+    }
+    var e = document.getElementById(id);
+    var quesNo = id.substring("answer".length,id.length);
+    var answer = e.getAttribute('name');
+    if(answer.indexOf(',') > 0){
+        var ansArray = answer.split(',');
+        // var selectedOptId = document.querySelector('input[name="' + id + '"]:checked').id;
+        var selectedIDs = [];
+        $(':checkbox[name="' + id + '"]:checked').each (function () {
+            selectedIDs.push(this.id.substring(this.id.length-1));
+        });
+        console.log(selectedIDs);
+        if(JSON.stringify(ansArray) == JSON.stringify(selectedIDs)){
+            /*$(':checkbox[name="' + id + '"]:checked').each (function () {
+                selectedIDs = this.id.substring(selectedIDs.length-1) + ',';
+                document.getElementById(this.id).style.background = "burlywood";
+            });*/
+            selectedIDs.forEach(ans => {console.log(ans)
+                document.getElementById('optionLabel'+quesNo+ans).style.background = "burlywood";});
+            document.getElementById('span'+quesNo).innerHTML = "&#10003;";
+            document.getElementById('span'+quesNo).className = 'tick';
+            document.getElementById('scoreLabel').innerText = Number(document.getElementById('scoreLabel').innerText) +  1;
+        }else{
+            ansArray.forEach(ans => {console.log(ans)
+                document.getElementById('optionLabel'+quesNo+ans).style.background = "burlywood";});
+            document.getElementById('span'+quesNo).innerHTML = "&#9747;";
+            document.getElementById('span'+quesNo).className = 'cross';
+        }
+    } else {
+        var selectedOptId = document.querySelector('input[name="' + id + '"]:checked').id;
+        if(answer == selectedOptId.substring(selectedOptId.length-1)){
+            document.getElementById('optionLabel'+quesNo+e.getAttribute('name')).style.background = "burlywood";
+            document.getElementById('span'+quesNo).innerHTML = "&#10003;";
+            document.getElementById('span'+quesNo).className = 'tick';
+            document.getElementById('scoreLabel').innerText = Number(document.getElementById('scoreLabel').innerText) +  1;
+        }else{
+            document.getElementById('optionLabel'+quesNo+e.getAttribute('name')).style.background = "burlywood";
+            document.getElementById('span'+quesNo).innerHTML = "&#9747;";
+            document.getElementById('span'+quesNo).className = 'cross';
+        }
+    }
+    e.style.display = 'block';
+    document.getElementById('show'+quesNo).style.display = 'none';
+    document.getElementById('ansDesc'+quesNo).className = 'exam_button';
+
+    //document.getElementById('hide'+quesNo).style.display = 'block';
+    /*if(e.style.display == 'none')
+           e.style.display = 'block';
+     else
+           e.style.display = 'none';
+     if(id){
+
+     }*/
+}
+function hideAns(id) {
+    var e = document.getElementById(id);
+    var quesNo = id.substring(id.length-1);
+    if(e.style.display == 'none')
+        e.style.display = 'none';
+    else
+        e.style.display = 'block';
+    document.getElementById('hide'+quesNo).style.display = 'none';
+    document.getElementById('show'+quesNo).style.display = 'block';
+}
+function AnsDesc(id){
+    var e = document.getElementById(id);
+    if(e.style.display == 'none')
+        e.style.display = 'block';
+    else
+        e.style.display = 'none';
+}
+
+// function returnScore(){
+// var answers = ["option21","option42","option63","option44","option35","option46","option17","option38","option49","option410","option511","option112","option413","option314","option415","option416","option317","option318","option219","option320","option221"],
+//         total = answers.length;
+//         alert("Your score is "+ getScore() +"/"+ total);
+// }
+//   function getScore(){
+// //   var score = 0;
+// //   for (var i=0; i<total; i++)
+// //     if(getCheckedValue("answer"+i)===answers[i]) score += 1;
+// //   return score;
+
+// var answer = document.querySelector('input[type = radio]:checked');
+// if(answer != null) {
+// alert("Selected radio button values is: " + answer.value);
+// }
+//     //result.innerHTML = 'You select : '+answer;
+// //alert(answer);
+//  }
+function returnScore(){
+    var tempNames = [];
+    var answers = ["option21","option42","option63","option44","option35","option46","option17","option38","option49","option410","option511","option112","option413","option314","option415","option416","option317","option318","option219","option320","option221"],
+        total = answers.length;
+    var radios = document.querySelectorAll('input').forEach(function(item) {
+
+        if (tempNames.indexOf(item.name) === -1) {
+            tempNames.push(item.name)
+        }
+    })
+    for (var i = 0; i < tempNames.length; i++) {
+        if (document.querySelector('input[name="' + tempNames[i] + '"]:checked') !== null) {
+            console.log(document.querySelector('input[name="' + tempNames[i] + '"]:checked').value)
+        } else {
+            console.log("Radio button of group value " + tempNames[i] + " is unchecked")
+
+        }
+
+    }
+}
+
+function recScore(ans){
+    var ansStr = ""+ans;
+    if(ansStr.indexOf(',') == -1){
+        //$("#"+inputs.item(i).id).prop("checked", true);
+        //alert(ans);
+        alert($(this).closest('label').text());
+    }else{
+        //$("#"+inputs.item(i).id).prop("checked", true);
+        //alert(ans);
+        alert($(this).closest('label').text());
+    }
+}
+function showAllAns() {
+    while(true){
+        $("#"+id1).css("display", "none");
+    }
+}
+function hideAllAns() {
+    while(true){
+        $("#"+id1).css("display", "none");
+    }
+}
+// create File
+function createFile(){
+    var fileName = document.getElementById("new_file").value;
+    var packageName = document.getElementById("new_package").value;
+    if(! fileName || ! packageName){
+        alert('Please add Package and File name');
+        return;
+    }
+
+    else {
+        $.post("http://127.0.0.1:8080/createFile",{
+                web_url:'http://javacommunity.org/'+document.getElementById("new_package").value+'/'+document.getElementById("new_file")+'.html',
+                fileName : fileName,
+                packageName : packageName,
+                heading : document.getElementById("new_heading").value,
+                descHeading : document.getElementById("new_desc_heading").value,
+                desc : document.getElementById("new_desc").value
+            },
+            function (data, status) {
+                alert("Data: " + data + "\nStatus: " + status);
+
+            });
+        //getFileMetadata();
+    }
+}
+// get web_name,description,heading,desc_heading from db
+var varFileName_Description;
+var packageNames;
+//get description of selected file
+function getFilePackage() {
+    $("#description").empty();
+    package = document.getElementById("package");
+    if(!packageNames || packageNames.length == 0) {
+        $.get("http://127.0.0.1:8083/filePackage",
+            function (data, status) {
+                //alert("Data: " + data + "\nStatus: " + status);
+                // var fileNames = document.getElementById("file");
+                var packageNames = document.getElementById("package");
+                var option;
+                for (var j = 0; j < data.length; j++) {
+                    //console.log(data[j].web_name);
+                    //console.log(data[j].description);
+                    //file_option = document.createElement("option");
+                    // file_option.text = data[j].web_name;
+                    //  fileNames.add(file_option);
+                    package_option = document.createElement("option");
+                    package_option.text = data[j].Tables_in_navneetrai;
+                    package.add(package_option);
+                    packageNames = data;
+                }
+                getFileMetadata();
+            });
+    }else{
+        for (var j = 0; j < packageNames.length; j++) {
+            package_option = document.createElement("option");
+            package_option.text = data[j].category;
+            packageNames.add(package_option);
+        }
+        getFileMetadata();
+    }
+}
+function getFileMetadata() {
+    $("#description").empty();
+    $("#file").empty();
+    package = document.getElementById("package").value;
+    fileNames = document.getElementById("file");
+    // if(!varFileName_Description || varFileName_Description.length == 0) {
+    $.post("http://127.0.0.1:8083/fileMetadata",
+        {
+            web_url:'http://javacommunity.org/java/'+window.location.href.substring(window.location.href.lastIndexOf('/')+1,window.location.href.length),
+            package : package
+        },
+        function(data, status){
+            var option ;
+            for (var j = 0; j < data.length; j++){
+                //  console.log('--webma --'+data[j].web_name);
+                option = document.createElement("option");
+                option.text = data[j].web_name;
+                fileNames.add(option);
+                varFileName_Description = data;
+            }
+            getDescForThisFile();
+        });
+    // }
+}
+/*function getFilesForThisPackage() {
+    $("#description").empty();
+            var fileNames = document.getElementById("file");
+            var option ;
+            for (var j = 0; j < varFileName_Description.length; j++) {
+                //console.log(data[j].web_name);
+                //console.log(data[j].description);
+               // if(varFileName_Description[j].package === document.getElementById("package").value) {
+                    option = document.createElement("option");
+                    option.text = varFileName_Description[j].web_name;
+                    fileNames.add(option);
+              //  }
+            }
+}*/
+// textarea omn ky press to allow usage of tab
+/*document.querySelector('#textarea').addEventListener('keydown', e => {
+    if ( e.key === 'Tab' && !e.shiftKey ) {
+        // execCommand operations are "Cmd|Ctrl+Z"-able
+        // note: execCommand is deprecated and may not work in the future
+        document.execCommand('insertText', false, "\t");
+        e.preventDefault();
+        return false;
+    }
+});*/
+function allowTabInTextarea(event) {
+    var char = event.which || event.keyCode;
+    console.log(char);
+    //alert(char);
+    if (char === 9) { // tab was pressed
+        event.preventDefault();
+        // get caret position/selection
+        var val = event.target.value,
+            start = event.target.selectionStart,
+            end = event.target.selectionEnd;
+
+        // set textarea value to: text before caret + tab + text after caret
+        event.target.value = val.substring(0, start) + '\t' + val.substring(end);
+
+        // put caret at right position again
+        event.target.selectionStart = event.target.selectionEnd = start + 1;
+        //document.getElementById("heading")
+        // event.target.value = event.target.value + '\t';
+        // prevent the focus lose
+        return false;
+    }else{
+        return true;
+    }
+};
+//get description of selected file
+function getDescForThisFile(){
+    $("#description").empty();
+    var fileName = document.getElementById("file").value;
+    for (var j = 0; j < varFileName_Description.length; j++){
+        if(varFileName_Description[j].web_name === fileName){
+            //  console.log('fileName = '+varFileName_Description[j].web_name+' and fileNAme = '+document.getElementById("file").value)
+            document.getElementById("heading").value = varFileName_Description[j].heading;
+            document.getElementById("desc_heading").value = varFileName_Description[j].desc_heading;
+            document.getElementById("jsEditor").remove();
+            var jsEditor = $("<div id='jsEditor' className='resizeable'</div>");
+            $('#editor').append(jsEditor);
+            getcode('http://javacommunity.org/java/'+fileName+'.html');
+            var descLines = varFileName_Description[j].description.split( "_^" );
+            var results = [];
+            if(descLines.length>1){
+                $("#description").empty();
+                for( var i = 0; i < descLines.length; ++i ) {
+                    //results.push( descLines[i] );
+                    //    console.log(descLines[i]);
+                    count = i+1;
+                    var newDiv = $("<div id='desc"+count+"'><label id='rowNumber"+count+"'>"+count+"</label><textarea id='descText"+count+"' class='descText' onkeydown='allowTabInTextarea(event)'>"+descLines[i]+"</textarea><button id='deleteDesc"+count+"' onClick="+"'deleteDescDiv(this);'"+">Delete</button></div>");
+                    $('#description').append(newDiv);
+                }
+            }else{
+                $("#description").empty();
+                count = 1;
+                var newDiv = $("<div id='desc"+count+"'><label id='rowNumber"+count+"'>"+count+"</label><textarea id='descText"+count+"' class='descText' onkeydown='allowTabInTextarea(event)'>"+varFileName_Description[j].description+"</textarea><button id='deleteDesc"+count+"' onClick="+"'deleteDescDiv(this);'"+">Delete</button></div>");
+                $('#description').append(newDiv);
+            }
+        }
+    }
+}
+// update description of a file
+function createDescDiv() {
+    // alert($('#descText1').val());
+    //alert($('#description:last-child').id);
+    //alert($('#description').children().size());
+    var count = $('#description').children().size()+1;
+    var newDiv = $("<div id='desc"+count+"'><label id='rowNumber"+count+"'>"+count+"</label><textarea id='descText"+count+"' class='descText' onkeydown='allowTabInTextarea(event)'></textarea><button id='deleteDesc"+count+"' onClick="+"'deleteDescDiv(this);'"+">Delete</button></div>");
+    $('#description').append(newDiv);
+    //alert($('#description').children().size());
+}
+// delete description of a file
+function deleteDescDiv(e) {
+    //alert(e.id);
+    removal_div_num = e.id.substring(e.id.indexOf('deleteDesc')+10,e.id.length);
+    // alert('removal_div_num = '+removal_div_num);
+    var divs = document.getElementById("description").childNodes.length;
+    var desc = '';
+    for(var i=1;i<divs;i++){
+        console.log('text = '+document.getElementById("desc"+i).childNodes[1].value);
+        if(i != removal_div_num) {
+            if (i == divs-1) {
+                desc = desc + document.getElementById("descText"+i).innerHTML;
+            } else {
+                desc = desc + document.getElementById("descText"+i).innerHTML + '_^';
+            }
+        }
+    }
+    var descLines = desc.split( "_^" );
+    var results = [];
+    if(descLines.length>1){
+        $("#description").empty();
+        for( var i = 0; i < descLines.length; ++i ) {
+            //results.push( descLines[i] );
+            console.log(descLines[i]);
+            count = i+1;
+            var newDiv = $("<div id='desc"+count+"'><label id='rowNumber"+count+"'>"+count+"</label><textarea id='descText"+count+"' class='descText' onkeydown='allowTabInTextarea(event)'>"+descLines[i]+"</textarea><button id='deleteDesc"+count+"' onClick="+"'deleteDescDiv(this);'"+">Delete</button></div>");
+            $('#description').append(newDiv);
+        }
+    }else{
+        $("#description").empty();
+        count = 1;
+        var newDiv = $("<div id='desc"+count+"'><label id='rowNumber"+count+"'>"+count+"</label><textarea id='descText"+count+"' class='descText' onkeydown='allowTabInTextarea(event)'>"+varFileName_Description[j].description+"</textarea><button id='deleteDesc"+count+"' onClick="+"'deleteDescDiv(this);'"+">Delete</button></div>");
+        $('#description').append(newDiv);
+    }
+}
+// capitalization
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+// update description of a file
+function createContent() {//alert(document.getElementById("editor").value);
+    var divs = document.getElementById("description").childNodes.length;
+    heading = capitalizeFirstLetter(document.getElementById("heading").value);
+    desc_heading = capitalizeFirstLetter(document.getElementById("desc_heading").value);
+    var desc = '';
+    //alert(divs);
+    for(var i=1;i<=divs;i++){
+        console.log('text = '+document.getElementById("desc"+i).childNodes[1].value.trim());
+        if(i!=divs){
+            //desc = desc+document.getElementById("desc"+i).childNodes[1].value.trim()+'_^';
+            desc =  desc + document.getElementById("descText"+i).value+'_^';
+            //= t.replace(/\n\r?/g, '<br />')
+            //alert(desc);
+        }
+        else{
+            desc =  desc + document.getElementById("descText"+i).value;
+            alert(document.getElementById("descText"+i).value);
+        }
+    }
+    //alert(desc);
+    //alert(document.getElementById("file").value);
+    $.post("http://127.0.0.1:8083/createContent",
+        {
+            web_url : 'http://javacommunity.org/java/'+document.getElementById("file").value.toLowerCase()+'.html',
+            desc : desc,
+            package: document.getElementById("package").value.toLowerCase(),
+            heading : heading,
+            desc_heading : desc_heading
+        },
+        function(data, status){
+            //alert("Data: " + data + "\nStatus: " + status);
+            if(status == "success"){
+                alert('File Updated Successfully');
+            }
+
+        });
+}
+
+// get description from db
+function getDesc() {//alert(document.getElementById("editor").value);
+    package = window.location.pathname.slice(window.location.pathname.indexOf('/')+1,window.location.pathname.lastIndexOf('/'));
+    web_url = 'http://javacommunity.org/'+package+'/'+window.location.href.substring(window.location.href.lastIndexOf('/')+1,window.location.href.length);
+    $.post("http://127.0.0.1:8083/fileDesc",
+        {
+            web_url : web_url,
+            package : package
+        },
+        function(data, status){
+            //alert("Data: " + data + "\nStatus: " + status);
+            /* for (var j = 0; j < data.length; j++){
+                 //console.log(data[j].web_name);
+                 count = j+1;
+                 var newDiv = $("<div id='desc"+count+"'><label id='rowNumber"+count+"'>"+count+"</label><textarea id='descText"+count+"' style='height:60px'>"+data[j].description+"</textarea></div>");
+                 $('#description').append(newDiv);
+             }*/
+            document.getElementById("heading").innerHTML = data[0].heading;
+            document.getElementById("desc_heading").innerHTML = data[0].desc_heading;
+            console.log(data[0].heading);
+            //description = description.replace(/\n\r?/g, '<br />');
+            var descLines = data[0].description.split('_^');
+            var results = [];
+            if(descLines.length>1){
+                $("#descList").empty();
+                for( var i = 0; i < descLines.length; ++i ) {
+                    //results.push( descLines[i] );
+                    console.log(descLines[i]);
+                    count = i+1;
+                    descLines[i] = descLines[i].replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+                    descLines[i] = descLines[i].replace(/\n\r?/g, '<br />');
+                    //var newLine = $("<li class='li'>"+descLines[i].replace(/\n\r?/g, '<br />')+"</li>");
+                    var newLine = $("<li class='li'>"+descLines[i]+"</li>");
+                    //alert(descLines[i]);
+                    $('#descList').append(newLine);
+                }
+            }else{
+                $("#descList").empty();
+                count = 1;
+                var newLine = $("<li class='li'>"+data[0].description+"</li>");
+                $('#descList').append(newLine);
+            }
+            var fileHeading = $("<h2 style='font-family:playfair;font-weight: bold;font-size:35px;' >"+data[0].heading+"</h2>");
+            $('#column-web1').append(fileHeading);
+        });
+}
+// get table names from db
+// get code from db
+function getcode(web_url) {
+    // alert(window.location.href.substring(window.location.href.lastIndexOf('/')+1,window.location.href.length));
+    package = window.location.pathname.slice(window.location.pathname.indexOf('/')+1,window.location.pathname.lastIndexOf('/'));
+    //alert(window.location.pathname.slice(window.location.pathname.lastIndexOf('/')+1));
+    if(!web_url ||  web_url == ''){
+        web_url = 'http://javacommunity.org/'+package+'/'+window.location.href.substring(window.location.href.lastIndexOf('/')+1,window.location.href.length);
+    }
+    $.post("http://127.0.0.1:8083/code",
+        {
+            web_url : web_url,
+            package : package
+        },
+        function(data, status){
+            if(!data || data.trim() == ''){
+                $('#code_div').class='hide';
+            }
+            $('#code_div').class='btn-div';
+            // alert("Data: " + data + "\nStatus: " + status);
+            document.getElementById("jsEditor").innerHTML = data;
+            var e = ace.edit("jsEditor");
+            //e.getSession().setMode("ace/mode/javascript");
+            e.getSession().setMode("ace/mode/java");
+            //e.getSession().setMode("ace/mode/c++");
+            //e.getSession().setMode("ace/mode/html");
+            e.setReadOnly(true);
+            e.setOption("showPrintMargin", false)
+            e.setTheme("ace/theme/github");
+            e.getSession().setTabSize(4);
+            e.setOptions({ maxLines: Infinity});
+            e.getSession().setUseWrapMode(true);
+            document.getElementById('theme').onchange = function() {
+                var x = document.getElementById("theme");
+                var themeValue = x.options[x.selectedIndex].value;
+                if (themeValue == "github") {
+                    e.setTheme("ace/theme/github");
+                }
+                if (themeValue == "cobalt") {
+                    e.setTheme("ace/theme/cobalt");
+                }
+                if (themeValue == "terminal") {
+                    e.setTheme("ace/theme/terminal");
+                }
+                if (themeValue == "xcode") {
+                    e.setTheme("ace/theme/xcode");
+                }
+                if (themeValue == "tn"){
+                    e.setTheme("ace/theme/tomorrow_night");
+                }
+            }
+            $(document).ready(function(){
+                var originalSize = $(".resizeable").css("font-size");
+                // reset
+                $("#resetMe").click(function(){
+                    $(".resizeable").css("font-size", originalSize);
+                });
+
+                // Increase Font Size
+                $("#increase").click(function(){
+                    var currentSize = $(".resizeable").css("font-size");
+                    var currentSize = parseFloat(currentSize)*1.2;
+                    $(".resizeable").css("font-size", currentSize);
+                    return false;
+                });
+
+                // Decrease Font Size
+                $("#decrease").click(function(){
+                    var currentFontSize = $(".resizeable").css("font-size");
+                    var currentSize = $(".resizeable").css("font-size");
+                    var currentSize = parseFloat(currentSize)*0.8;
+                    $(".resizeable").css("font-size", currentSize);
+                    return false;
+                });
+            });
+
+            $('#copy').on('click', function() {
+                var sel = e.selection.toJSON();
+                e.selectAll();
+                e.focus();
+                document.execCommand('copy');
+                e.selection.fromJSON(sel);
+                document.getElementById("copy-message").innerHTML = "Code Copied";
+                setTimeout(function () {document.getElementById('copy-message').innerHTML = '';}, 2000);
+            });
+        });
+}
+
+
+function postUsernameToServer(elem) {
+    //alert(elem);
+    //alert(elem.substring(elem.length-1,elem.length));
+    urlId = 'UrlText'+elem.substring(elem.length-1,elem.length);
+    statusId = 'GetStatusInput'+elem.substring(elem.length-1,elem.length);
+    //alert('url : '+$('#'+urlId).val());
+    var data={};
+    //const url = 'url ';
+    data.url = JSON.parse(JSON.stringify($('#'+urlId).val()));
+    console.log(data);
+    //  var clickedBtn = elem;
+    // console.log(clickedBtn);
+    // var ele = document.getElementsByClassName('urlInput');
+    //     for (i = 0; i < ele.length; i++) {
+    //         if (ele[i].type == 'text') {
+    //            console.log('url: ' + ele[i].value);
+
+    //             //for (j = 0; j < ele[i].attributes.length; j++) {
+    //                 console.log(ele[i].id);
+    //                 var data ={};
+    //                data.url =  ele[i].value;
+    //    //               alert (data.url);
+    //            // }
+
+
+//   var data = {};
+// var gfd =  $("#UrlText"+i).val();
+// //data.url = document.getElementById('UrlText1').value;
+//  alert(data.url);
+//  //console.log(data);
+//  //console.log(data.url);
+// //  if (data.url == "")
+// // {
+// // alert("Please input a Value");
+// // }
+// // else{
+    $.ajax({
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json',
+        url: 'http://117.220.9.53:8082/url',
+        success: function(data) {
+            console.log('success');
+            console.log(JSON.stringify(data));
+            $('#'+statusId).val(data);
+        },
+        error: function(data){
+            $('#'+statusId).val(data.status);
+            console.log('error');
+            console.log(JSON.stringify(data.status));
+            // alert("enter valid url");
+            // alert( " returns a " + data.status);
+            //console.log('error');
+        }
+
+    });
+
+
+//}}
+}
+
+// function abc() {
+//     $.ajax({
+//        url: "http://localhost:8082/urlStatus",
+//        type: "get",
+//        // data: { username: username },
+//        success: function(result) {
+//            //alert('Successfully connected to the server' +result);
+//          ;
+//        },
+//        error: function() {
+//            alert('Something went wrong');
+//        }
+//    });
+// }
+
+function SubmitUrl() {
+
+    var data = [];
+    var searchEles = $('#append-div').children().children() ;
+    console.log(searchEles);
+    for(var i = 0; i < searchEles.length; i++) {
+        if(searchEles[i].tagName == 'INPUT') {
+            if(searchEles[i].id.indexOf('UrlText') == 0) {
+                data.push(searchEles[i].value);
+
+            }
+        }
+    }
+    console.log(data);
+    $.ajax({
+        type: 'POST',
+        data: {data:data},
+        // contentType: 'application/json',
+        url: 'http://117.220.9.53:8082/urlAllSubmit',
+        success: function(data) {
+            console.log('success');
+            console.log('check data',data);
+            var key;
+            var i=0;
+            for (key in data) {
+                i++;
+                if (data.hasOwnProperty(key)) {
+                    console.log(key + " = " + data[key]);
+                    var status = data[key];
+                    document.getElementById('GetStatusInput'+i).value = JSON.stringify(status);
+                }
+            }
+        },
+        error: function(data){
+            $('#'+statusId).val(data.status);
+            console.log('error');
+            console.log(data.status);
+            // alert("enter valid url");
+            // alert( " returns a " + data.status);
+            //console.log('error');
+        }
+
+    });
+
+
+
+//            var alldescendants = [];
+
+// var parentDiv = document.getElementById("append-div");
+// //var notes = null;
+// for (var i = 0; i < parentDiv.childNodes.length; i++) {
+//     if (parentDiv.childNodes[i].className == "urlInput") {
+//       //notes = doc.childNodes[i];
+//       console.log(parentDiv.childNodes[i].value);
+
+//       // add urls to arrau
+
+//     }
+//     console.log(parentDiv.childNodes[i].value);
+// }
+}
+
+
+function SubmitUrl1() {
+    var alldescendants = [];
+
+    var t = document.getElementById('append-div').childNodes;
+    console.log(t);
+    for(let i = 0; i < t.length; i++)
+        if (t[i].nodeType == 1)
+            recurseAndAdd(t[i], alldescendants);
+
+    function recurseAndAdd(el, descendants) {
+        console.log(el);
+        descendants.push(el.value);
+        var children = el.childNodes;
+        console.log(children);
+        // var inputs = document.querySelectorAll('input');
+        // console.log(inputs);
+
+        let userInputs = document.querySelectorAll('input');
+
+        userInputs.forEach(userInput => {
+            console.log(userInput.value);
+        });
+
+        let values = Array.from(userInputs).map(userInput =>(userInput.value));
+        console.log('dfjks',values);
+
+
+        for(i=0; i < children.length; i++) {
+            if (children[i].nodeType == 1) {
+                descendants.push(children[i].value);
+            }
+        }
+    }
+    console.log(alldescendants);
+//console.log(alldescendants);
+//             var div = document.getElementById("append-div");
+//             var children = div.childNodes;
+//             console.log(children);
+//             //var x = document.getElementById("append-div").querySelectorAll("h2, div, span");
+//             //var inputElements = children.querySelector("input");
+// var name =[];
+// for (var i = 0; i < children.length; i++) {
+//      name.push(children[i].value);
+//  // children[i].style.backgroundColor = "red";
+// }
+// console.log(name);
+//             var div = document.getElementById("append-div");
+// var children = div.childNodes;
+// var elements = [];
+// for (var i=0; i<div.childNodes.length; i++) {
+//   var child = div.childNodes[i];
+//   if (child.nodeType == 1) {
+//     elements.push(child)
+//   }
+
+// }
+//    console.log(elements);
+    //   var elem = document.getElementsByClassName("urlInput");
+    //   var names = [];
+    //   for (var i = 0; i < elem.length; ++i) {
+    //       // if (typeof elem[i].attributes.id !== "undfined") {
+    //       //   if(elem[i].attributes.id.value === "UrlText"+i){
+    //           names.push(elem[i].value);
+    //            }
+    //           // }
+    //         //}
+    //   console.log(names);
+
+
+    // $.ajax({
+    //    type: 'POST',
+    //    data: {names:names},
+    //    contentType: 'application/json',
+    //    url: 'http://localhost:8082/urlAllSubmit',
+    //    success: function(data) {
+    //           console.log('success');
+    //           console.log(JSON.stringify(data));
+    //            //$('#'+statusId).val(data);
+    //         },
+    //         error: function(data){
+    //             // $('#'+statusId).val(data.status);
+    //              console.log('error');
+    //          console.log(JSON.stringify(data.status));
+    //             // alert("enter valid url");
+    //             // alert( " returns a " + data.status);
+    //             //console.log('error');
+    //         }
+
+    //    });
+
+}
+
+//---------------- Exam Related Ends -------------------------------------------------------------------------------------------------------------------
+
+//---------------------------------------- comments----------------------------------
+var form = document.querySelector('.form-comment');
+var intbtn = 0;
+function validateForm(){
+    var comment = $('.commentar').val();
+    var name = $('.commentTextBox').val();
+    var email =$('.commentEmail').val();
+    var button = document.querySelector('.submit');
+    var regEx = /\S+@\S+\.\S+/;
+    var letters = /[A-Za-z]/;
+
+    if(!comment && !name && !email){
+        document.getElementById("error_textarea").innerHTML = "**Add Comment";
+        document.getElementById("textarea").style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_textarea").innerHTML = '';},3000);
+        document.getElementById("error_name").innerHTML = "**Enter Name (alphabets only)";
+        document.getElementById("inputForName").style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_name").innerHTML = '';},3000);
+        document.getElementById("error_email").innerHTML = "**Enter Correct Email";
+        document.getElementById("inputForEmail").style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_email").innerHTML = '';},3000);
+        return false;}
+    else if(!comment && !name){
+        document.getElementById("error_textarea").innerHTML = "**Add Comment";
+        document.getElementById("textarea").style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_textarea").innerHTML = '';},3000);
+        document.getElementById("error_name").innerHTML = "**Enter Name (alphabets only)";
+        document.getElementById("inputForName").style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_name").innerHTML = '';},3000);
+        return false;}
+    else if(!comment && !email){
+        document.getElementById("error_textarea").innerHTML = "**Add Comment";
+        document.getElementById("textarea").style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_textarea").innerHTML = '';},3000);
+        document.getElementById("error_email").innerHTML = "**Enter Correct Email";
+        document.getElementById("inputForEmail").style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_email").innerHTML = '';},3000);
+        return false;}
+    else if(!name && !email){
+        document.getElementById("error_name").innerHTML = "**Enter Name (alphabets only)";
+        document.getElementById("inputForName").style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_name").innerHTML = '';},3000);
+        document.getElementById("error_email").innerHTML = "**Enter Correct Email";
+        document.getElementById("inputForEmail").style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_email").innerHTML = '';},3000);
+        return false;}
+    else if(!comment){
+        document.getElementById("error_textarea").innerHTML = "**Add Comment";
+        document.getElementById("textarea").style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_textarea").innerHTML = '';},3000);
+        return false;
+    }
+    else if(!name){
+        document.getElementById("error_name").innerHTML = "**Enter Name (alphabets only)";
+        document.getElementById("inputForName").style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_name").innerHTML = '';},3000);
+        return false;
+    }
+    else if(!regEx.test(email)){
+        document.getElementById("error_email").innerHTML = "**Enter Correct Email";
+        document.getElementById("inputForEmail").style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_email").innerHTML = '';},3000);
+        return false;
+    }
+    else {
+        intbtn++;
+        el = document.createElement('span');
+        el.className = "box_result row-comment";
+        el.innerHTML =
+            '<div class="avatar_comment col-md-1">'+
+            '<img src="../img/user.png" alt="avatar"/>'+
+            '</div>'+
+            '<div class="result_comment col-md-11">'+
+            '<h4>'+ name +'</h4>'+
+            '<label class="emailLabel">'+ email +'</label>'+
+            '<p>'+ comment +'</p>'+
+            '<div class="tools_comment">'+
+            '<a class="like" id="like'+intbtn+'"><i class="fa fa-thumbs-up"></i><input type="text" class="thumbUp-in"  name="txt" value="0" readonly></a>'+
+            '<a class="dislike" id="dislike'+intbtn+'"><i class="fa fa-thumbs-down" aria-hidden="true"></i><input type="text" class="thumbDown-in" name="txt" value="0" readonly></a>'+
+            '<a class="replay" href="#"><i class="fa fa-reply" aria-hidden="true"></i>Reply</a>'+
+            '</div>'+
+
+            '</div>'+
+            '<div class="child_replay"></div>';
+        document.getElementById('list_comment').prepend(el);
+        $('.commentar').val('');
+        $('.commentTextBox').val('');
+        $('.commentEmail').val('');
+        console.log(comment);
+        $(function(){
+            $("#like"+intbtn).click(function(){
+                var input = $(this).find('.thumbUp-in');
+                input.val(parseInt(input.val())+1);
+            });
+            $("#dislike"+intbtn).click(function(){
+                var input = $(this).find('.thumbDown-in');
+                input.val(parseInt(input.val())+1);
+            });
+
+        })
+        return false;
+    }
+}
+form.addEventListener('submit', function(event){ event.preventDefault();})
+
+// --------------------------Reply Comment------------------------------------
+var replyid =0;
+$(document).ready(function() {
+    replyid++;
+    $('#list_comment').on('click', '.replay', function (e) {
+        cancel_reply();
+        $current = $(this);
+        el = document.createElement('span');
+        el.className = "box_reply row-comment";
+        el.innerHTML =
+            '<div class="col-md-12 reply_comment" style="width:100%;">'+
+            '<div class="row-comment " id="target'+replyid+'" >'+
+            '<div class="avatar_comment col-md-1" style="margin-top: 0%; padding:none;">'+
+            '<img src="../img/user.png" alt="avatar"/>'+
+            '</div>'+
+            '<div class="box_comment  z" tabindex="0" id="z'+replyid+'">'+
+            '<form class="formsR">'+
+            '<textarea class="comment_replay red_text" id="textareaR'+replyid+'" placeholder="Reply a comment..." ></textarea>'+
+            '<div class="box_post">'+
+            '<p><span id="error_textareaReply"></span></p>'+
+            '<div class="pull-right">'+
+            '<button class="cancel" onclick="cancel_reply()" type="button">Cancel</button>'+
+            '<button onclick="submit_reply()" type="button" class="submitR "  value="1" >Reply</button>'+
+            '</div>'+
+            '<input type="text" name="text" class="commentTextBoxReply red_name" id="CommentnameR'+replyid+'" placeholder="Enter Your Name Here...**" '+
+            ' onkeypress="return (event.charCode > 64 &&  event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" required><br>'+
+            '<p><span id="error_nameReply"></span></p>'+
+            '<input type="email" name="emailR" class="commentEmailReply red_email"  placeholder="Enter Your Email...**" id="emailReply'+replyid+'">'+
+            '<p><span id="error_emailReply"></span></p>'+
+            '</div>'+
+            '</form>'+
+            '</div>'+
+            '</div>'+
+            '</div>';
+        $current.closest('span').find('.child_replay').prepend(el);
+        //$('.z')[0].focus();
+        setTimeout(function(){
+            $("#z"+replyid).focus();},100);
+        //document.getElementById("target").focus({preventScroll:false});
+        //target.querySelector(".z").focus();
+    });
+});
+
+
+var likeDlike =0;
+//var replyid1 =0;
+function submit_reply(){
+    //replyid1++;
+    likeDlike++;
+    var comment_replay = $('.comment_replay').val();
+    var nameReply = $('.commentTextBoxReply').val();
+    var emailReply =$('.commentEmailReply').val();
+    var button = document.querySelector('.submitR');
+    var regEx = /\S+@\S+\.\S+/;
+    var letters = /^[A-Za-z]+$/;
+    if(!comment_replay && !nameReply && !emailReply){
+        document.getElementById("error_textareaReply").innerHTML = "**Add Comment";
+        //document.getElementById("textareaR"+likeDlike).style.border=" 1px solid red ";
+        document.getElementsByClassName('red_text')[0].style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_textareaReply").innerHTML = '';},3000);
+        document.getElementById("error_nameReply").innerHTML = "**Enter Name (alphabets only)";
+        document.getElementsByClassName('red_name')[0].style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_nameReply").innerHTML = '';},3000);
+        document.getElementById("error_emailReply").innerHTML = "**Enter Correct Email";
+        document.getElementsByClassName('red_email')[0].style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_emailReply").innerHTML = '';},3000);
+        // return false;
+    }
+    else if( !comment_replay && !nameReply ){
+        document.getElementById("error_textareaReply").innerHTML = "**Add Comment";
+        //document.getElementById("textareaR"+likeDlike).style.border=" 1px solid red ";
+        document.getElementsByClassName('red_text')[0].style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_textareaReply").innerHTML = '';},3000);
+        document.getElementById("error_nameReply").innerHTML = "**Enter Name (alphabets only)";
+        document.getElementsByClassName('red_name')[0].style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_nameReply").innerHTML = '';},3000);
+    }
+    else if (!comment_replay && !emailReply) {
+        document.getElementById("error_textareaReply").innerHTML = "**Add Comment";
+        document.getElementsByClassName('red_text')[0].style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_textareaReply").innerHTML = '';},3000);
+        document.getElementById("error_emailReply").innerHTML = "**Enter Correct Email";
+        document.getElementsByClassName('red_email')[0].style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_emailReply").innerHTML = '';},3000);
+    }
+    else if(!nameReply && !emailReply){
+        document.getElementById("error_nameReply").innerHTML = "**Enter Name (alphabets only)";
+        document.getElementsByClassName('red_name')[0].style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_nameReply").innerHTML = '';},3000);
+        document.getElementById("error_emailReply").innerHTML = "**Enter Correct Email";
+        document.getElementsByClassName('red_email')[0].style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_emailReply").innerHTML = '';},3000);
+    }
+    else if(!comment_replay){
+        document.getElementById("error_textareaReply").innerHTML = "**Add Comment";
+        document.getElementsByClassName('red_text')[0].style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_textareaReply").innerHTML = '';},3000);
+    }
+
+    else if(!nameReply){
+        document.getElementById("error_nameReply").innerHTML = "**Enter Name (alphabets only)";
+        document.getElementsByClassName('red_name')[0].style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_nameReply").innerHTML = '';},3000);
+    }
+    else if(!regEx.test(emailReply)){
+        document.getElementById("error_emailReply").innerHTML = "**Enter Correct Email";
+        document.getElementsByClassName('red_email')[0].style.border="1px solid red";
+        setTimeout(function(){document.getElementById("error_emailReply").innerHTML = '';},3000);
+
+    }
+    else{
+        likeDlike++;
+        el = document.createElement('span');
+        el.className = "box_reply row-comment";
+        el.innerHTML =
+            '<div class="avatar_comment col-md-1">'+
+            '<img src="../img/user.png" alt="avatar"/>'+
+            '</div>'+
+            '<div class="result_comment col-md-11">'+
+            '<h4>'+ nameReply+'</h4>'+
+            '<label class="emailLabel">'+ emailReply +'</label>'+
+            '<p>'+ comment_replay +'</p>'+
+            '<div class="tools_comment">'+
+            '<a class="like" id="likeR'+likeDlike+'"><i class="fa fa-thumbs-up"></i><input type="text" class="thumbUp-inReply" name="txt" value="0" readonly></a>'+
+            '<a class="dislike" id="dislikeR'+likeDlike+'"><i class="fa fa-thumbs-down" aria-hidden="true"></i><input type="text" class="thumbDown-inReply"  name="txt" value="0" readonly></a>'+
+            '<a class="replay" href="#"><i class="fa fa-reply" aria-hidden="true"></i>Reply</a>'+
+            '</div>'+
+
+            '</div>'+
+            '<div class="child_replay"></div>';
+        $current.closest('span').find('.child_replay').prepend(el);
+        $('.comment_replay').val('');
+        $('.commentTextBoxReply').val('');
+        $('.commentEmailReply').val('');
+        cancel_reply();
+
+        $(function(){
+            $("#likeR"+likeDlike).click(function(){
+                var input = $(this).find('.thumbUp-inReply');
+                input.val(parseInt(input.val())+1);
+            });
+            $("#dislikeR"+likeDlike).click(function(){
+                var input = $(this).find('.thumbDown-inReply');
+                input.val(parseInt(input.val())+1);
+            });
+        })
+    }
+}
+
+// -----------cancel comment reply---------------
+function cancel_reply(){
+    $('.reply_comment').remove();
+}
+
+// -----------------auto expand textarea-----------------------------
+
+var textarea = document.getElementById("textarea");
+var heightLimit = 2000;
+textarea.oninput = function() {
+    textarea.style.height = "";
+    textarea.style.height = Math.min(textarea.scrollHeight, heightLimit) + "px";
+};
+
+
+function header(){
+    document.write("<header id='header'><div class='c-overlay header__img' style=''></div>"+
+        "<div class='c-overlay s-back-grad op88'></div>"+
+        "<div class='container_new'>"+
+        "<input type='checkbox' name='' id='check'>"+
+        "<div class='nav-btn'>"+
+        "<div class='nav-links'>"+
+        "<ul class= 'ul'>"+
+        "<li class='nav-link' style='--i: .6s'><a href='../index.html' class='a'><i class='fa fa-home' style='font-size: x-large;transform:none!important;'></i></a></li>"+
+
+        "<li class='nav-link' style='--i: 1.1s'>"+
+        "<a href='#' class='a'>Java 8 New Features<i class='fas fa-caret-down'></i></a>"+
+        "<div class='dropdown_new'>"+
+        "<ul class='ul'>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../java/java8-upgrade-exam-syllabus.html' class='a'>Java SE 8 Programmer</a>"+
+        "<div class='dropdown_new second'>"+
+        "<ul class='ul'>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../java/java8-upgrade-exam-language-enhancements.html' class='a'>Language Enhancements</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../java/java8-upgrade-exam-lambda-expressions.html' class='a'>Lambda</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../java/java8-upgrade-exam-collection.html' class='a'>Java Collections</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../java/java8-upgrade-exam-streams.html' class='a'>Java Streams</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../java/java8-upgrade-exam-concurrency.html' class='a'>Concurrency</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../java/java8-upgrade-exam-localization.html' class='a'>Localization</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../java/java8-upgrade-exam-file-nio2.html' class='a'>Java File I/O (NIO.2)</a>"+
+        "</li>"+
+        /*"<li class='dropdown-link'>"+
+        "<a href='../java/java8-upgrade-exam-feature.html' class='a'>Java-7-new-features</a>"+
+        "</li>"+*/
+        "<li class='dropdown-link'>"+
+        "<a href='https://education.oracle.com/oracle-certified-professional-java-se-8-programmer/trackp_357' target='_' class='a'>Check Java8 Certification Syllabus on Oracle site</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../java/java8-upgrade-exam-sample1.html' class='a'>Check Out Our Sample Exam</a>"+
+        "</li>"+
+        "<div class='arrow'></div>"+
+        "</ul>"+
+        "</div>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='#' class='a'>Collection<i class='fas fa-caret-down'></i></a>"+
+        "<div class='dropdown_new second'>"+
+        "<ul class='ul'>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../java/java8-foreach.html' class='a'>For Each</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../java/java8-bi-conditional.html' class='a'>BiConditional</a>"+
+        "</li>"+
+        "<div class='arrow'></div>"+
+        "</ul>"+
+        "</div>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='#' class='a'>NIO<i class='fas fa-caret-down'></i></a>"+
+        "<div class='dropdown_new second'>"+
+        "<ul class='ul'>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../java/java8-list-hidden-files.html' class='a'>List Hidden Files</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../java/java8-list-files-recursively.html' class='a'>List Files Recursively</a>"+
+        "</li>"+
+        "<div class='arrow'></div>"+
+        "</ul>"+
+        "</div>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='#' class='a'>Interface</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='#' class='a'>Functional Interface</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        //"<a href='#' class='a'>Lambdas</a>"+
+        "<a href='#' class='a'>Lambdas<i class='fas fa-caret-down'></i></a>"+
+        "<div class='dropdown_new second'>"+
+        "<ul class='ul'>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../java/java8-lambda-important-points.html' class='a'>Features</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../java/java8-lambda-important-points.html' class='a'>HashMapAndLambdas</a>"+
+        "</li>"+
+        "<div class='arrow'></div>"+
+        "</ul>"+
+        "</div>"+
+        "</li>"+
+        "<div class='arrow'></div>"+
+        "</ul>"+
+        "</div>"+
+        "</li>"+
+
+
+        "<li class='nav-link' style='--i: 1.1s'>"+
+        "<a href='#' class='a'>Java<i class='fas fa-caret-down'></i></a>"+
+        "<div class='dropdown_new'>"+
+        "<ul class='ul'>"+
+        /*"<li class='dropdown-link'>"+
+             "<a href='../java/java9-new-features.html' class='a'>Java 9 new Features<i class='fas fa-caret-down'></i></a>"+
+             "<div class='dropdown_new second'>"+
+                 "<ul class='ul'>"+
+                     "<li class='dropdown-link'>"+
+                         "<a href='../java/java9-new-feature-modules.html' class='a'>Java 9 Modulus</a>"+
+                     "</li>"+
+                     "<div class='arrow'></div>"+
+                 "</ul>"+
+             "</div>"+
+         "</li>"+
+
+         "<li class='dropdown-link'>"+
+             "<a href='../java/java-hello-world.html' class='a'>Hello World</a>"+
+         "</li>"+*/
+        "<li class='dropdown-link'>"+
+        "<a href='#' class='a'>List<i class='fas fa-caret-down'></i></a>"+
+        "<div class='dropdown_new second'>"+
+        "<ul class='ul'>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../java/java-how-to-iterate-linked-list-forward-and-reverse.html' class='a'>Iterate Linked list</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../java/java-find-middle-element-in-linked-list-in-single-pass.html' class='a'>Find Middle Element in Linked List</a>"+
+        "</li>"+
+        "<div class='arrow'></div>"+
+        "</ul>"+
+        "</div>"+
+        "</li>"+
+        "<div class='arrow'></div>"+
+        "</ul>"+
+        "</div>"+
+        "</li>"+
+
+
+        j2ee()+
+
+
+        /*"<li class='nav-link' style='--i: 1.1s'>"+
+          "<a href='#' class='a'>Architecture<i class='fas fa-caret-down'></i></a>"+
+            "<div class='dropdown_new'>"+
+              "<ul class= 'ul'>"+
+                "<li class='dropdown-link'>"+
+                    "<a href='../architecture/oauth2-framework.html' class='a'>OAuth 2.0</a>"+
+                    "</li>"+
+                    "<li class='dropdown-link'>"+
+                        "<a href='../architecture/cloud-computing.html' class='a'>Cloud Computing</a>"+
+                    "</li>"+
+                    "<div class='arrow'></div>"+
+                "</ul>"+
+            "</div>"+
+        "</li>"+*/
+        "<li class='nav-link' style='--i: 1.1s'>"+
+        "<a href='#' class='a'>Design<i class='fas fa-caret-down'></i></a>"+
+        "<div class='dropdown_new'>"+
+        "<ul class= 'ul'>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../design/vertical-vs-horizontal-scaling.html' class='a'>Vertical vs Horizontal Scaling</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../design/oauth2-framework.html' class='a'>Oauth2 Framework</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../design/hexagonal-architecture.html' class='a'>Hexagonal design</a>"+
+        "</li>"+
+        "<div class='arrow'></div>"+
+        "</ul>"+
+        "</div>"+
+        "</li>"+
+
+        cloud()+
+
+        "<li class='nav-link' style='--i: 1.1s'>"+
+        "<a href='#' class='a'>Support<i class='fas fa-caret-down'></i></a>"+
+        "<div class='dropdown_new'>"+
+        "<ul class= 'ul'>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../admin/post-content.html' class='a'>Post Content</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../admin/compile-and-run-code.html' class='a'>Compile & Run Code</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../admin/update-content.html' class='a'>Update Content</a>"+
+        "</li>"+
+        "<div class='arrow'></div>"+
+        "</ul>"+
+        "</div>"+
+        "</li>"+
+        "</ul>"+
+        "</div>"+
+        // "<div class='log-sign' style='--i: 1.8s'>"+
+        //     "<a href='../index/index.html' class='btn_nav transparent a'>Back To Home</a>"+
+        //     "<a href='../login/login.html' class='btn_nav transparent'>Log In</a>"+
+        //    "<a href='#' class='btn_nav solid'>Sign up</a>"+
+        // "</div>"+
+        "</div>"+
+        "<div class='hamburger-menu-container'>"+
+        "<div class='hamburger-menu'>"+
+        "<div></div>"+
+        "</div>"+
+        "</div>"+
+        "</div>");
+}
+function j2ee() {
+    return "<li class='nav-link' style='--i: .85s'>" +
+        "<a href='#' class='a'>J2EE<i class='fas fa-caret-down'></i></a>" +
+        "<div class='dropdown_new'>" +
+        "<ul class= 'ul'>" +
+        "<li class='dropdown-link'><a href='../jee/jee-jsp-definition-and-important-points.html' class='a'>JSP Important Points</a></li>" +
+        "<li class='dropdown-link'><a href='../jee/jee-jsp-definition-and-important-points.html' class='a'>JSP Important Points</a></li>" +
+        links_foot();//j2ee
+}
+function cloud() {
+    return "<li class='nav-link' style='--i: 1.1s'>"+
+        "<a href='#' class='a'>Cloud<i class='fas fa-caret-down'></i></a>"+
+        "<div class='dropdown_new'>"+
+        "<ul class= 'ul'>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../cloud/google-cloud-certified-data-engineer-syllabus.html' class='a'>Syllabus</a>"+
+        "</li>"+
+        "<li class='dropdown-link'>"+
+        "<a href='../cloud/oauth2-framework.html' class='a'>Oauth2 Framework</a>"+
+        "</li>"+
+        "<li class='dropdown-link'><a href='../design/hexagonal-architecture.html' class='a'>Hexagonal Architecture</a></li>"+
+        "<li class='dropdown-link'><a href='../design/hexagonal-architecture.html' class='a'>Hexagonal Architecture</a></li>"+
+links_foot();//cloud
+}
+function links_foot(){
+    return "<div class='arrow'></div>" +
+        "</ul>" +
+        "</div>" +
+        "</li>"
+}
