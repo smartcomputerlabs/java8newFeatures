@@ -1,4 +1,4 @@
-package nio;
+package java8.nio;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

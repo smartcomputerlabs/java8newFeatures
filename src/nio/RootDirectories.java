@@ -1,8 +1,7 @@
-package nio;
+package java8.nio;
 
 import java.io.File;
 import java.nio.file.FileSystems;
-import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class RootDirectories {

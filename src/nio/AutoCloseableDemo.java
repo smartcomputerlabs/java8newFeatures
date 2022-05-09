@@ -1,4 +1,4 @@
-package nio;
+package java8.nio;
 
 import java.io.IOException;
 import java.nio.file.Path;
