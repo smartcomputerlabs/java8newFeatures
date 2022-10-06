@@ -1,10 +1,10 @@
-package java8.nio;
+package smartcomputerlabs.nio;
 
 import java.io.File;
 import java.io.FileFilter;
 import java.util.Arrays;
 
-public class List_Hidden_Files {
+public class ListHiddenFiles {
 	public static String hidden_files_path = ".";
 
 	public static void main(String[] args) {
