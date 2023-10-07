@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/java8newFeatures.iml" filepath="$PROJECT_DIR$/java8newFeatures.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/java8newFeatures1.iml" filepath="$PROJECT_DIR$/src/java8newFeatures1.iml" />
     </modules>
   </component>
 </project>
