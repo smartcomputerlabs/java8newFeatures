@@ -1,4 +1,4 @@
-package java8OReally;
+package org.javacommunity.java8OReally;
 
 
 import java.util.Arrays;

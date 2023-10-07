@@ -1,11 +1,11 @@
-package java8OReally.ch3;
+package org.javacommunity.java8OReally.ch3;
+
+import org.javacommunity.java8OReally.Artist;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import java8OReally.Artist;
 
 public class Q1 {
 
