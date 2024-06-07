@@ -47,15 +47,16 @@ public class FlatMap {
 
         Order firstOrder = new Order("1111","HomeAddress","SameDayDelivery",orderItemList1);
         Order secondOrder = new Order("2222","HomeAddress","SameDayDelivery",orderItemList2);
-        Order thirdOrder = new Order("3333","HomeAddress","SameDayDelivery",orderItemList3);
+        Order thirdOrder = new Order("3333","OfficeAddress","SameDayDelivery",orderItemList3);
 
         ArrayList<Order> orderList = new ArrayList<>();
         orderList.add(firstOrder);orderList.add(secondOrder);orderList.add(thirdOrder);
        // Stream<String> news = s1.filter(s->s.contains("c"))
        //     .flatMap(olds -> olds.stream());
 
-        Stream<OrderItem> items = orderList.stream().flatMap(order -> order.getItemList().stream());
+        Stream<OrderItem> items = orderList.stream().filter(order -> order.getAddress().equals("HomeAddress")).flatMap(order -> order.getItemList().stream());
         items.forEach(System.out::println);
+
     
    // String s = "sss";
    // Object j = s;

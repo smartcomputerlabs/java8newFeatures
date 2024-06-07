@@ -2,9 +2,11 @@ package org.javacommunity.stream;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class TestClass{
 
@@ -15,8 +17,11 @@ public class TestClass{
 	public static void main(String[] args) {
 		//       boolean b = checkList(new ArrayList(), al -> al.add("h"));
 	//	       System.out.println(b);
-		       
-		double amount = 123456.789;
+        Supplier<ArrayList<String>> s1 = ArrayList<String>::new;
+        ArrayList<String> a1 = s1.get();
+        System.out.println(a1);
+
+		/*double amount = 123456.789;
         Locale fr = new Locale("fr", "FR");
         NumberFormat formatter = NumberFormat.getInstance(fr);
         String s = formatter.format(amount) ;
@@ -29,7 +34,7 @@ public class TestClass{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        System.out.println( amount + " " + amount2 );
+        System.out.println( amount + " " + amount2 );*/
 	}
 
 }
