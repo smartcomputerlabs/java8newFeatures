@@ -42,12 +42,12 @@ public class FunctionalProgrammingJavaCommunityBlog {
         System.out.println("Total Discount (Imperative): " + totalDiscount);
         System.out.println("Total Discount (Functional): " + totalOfDiscountedPrices);
 
-//the file used can be downloaded from link https://www.kaggle.com/datasets/thedevastator/cancer-patients-and-air-pollution-a-new-link
+//the file used can be downloaded from link https://github.com/smartcomputerlabs/java8newFeatures/blob/main/src/org/javacommunity/lung_cancer_prediction_dataset.csv
 //Find total Cigarettes consumed using single threaded code
         long startTime = System.nanoTime();
 //Change the path according to your file location
         try (BufferedReader bufReadr = new BufferedReader(
-                new InputStreamReader(Files.newInputStream(Paths.get("H://projects//lung_cancer_prediction_dataset.csv"))))) {
+                new InputStreamReader(Files.newInputStream(Paths.get("H:\\projects\\lung_cancer_prediction_dataset.csv"))))) {
             bufReadr.readLine();// Skip header line
             long totalCigarettesConsumed = bufReadr.lines().map(s -> {
                 String[] stArray = s.split(",");
@@ -66,10 +66,10 @@ public class FunctionalProgrammingJavaCommunityBlog {
 //Find total Cigarettes consumed using multithreaded code
         System.out.println("---  Now running same code using parallel streams  ---");
 
-// Start measuring execution time
+// Start measuring execution time, Change the path according to your file location
         long startTime2 = System.nanoTime();
         try (BufferedReader bufReadr = new BufferedReader(
-                new InputStreamReader(Files.newInputStream(Paths.get("D://lung_cancer_prediction_dataset.csv"))))) {
+                new InputStreamReader(Files.newInputStream(Paths.get("H:\\projects\\lung_cancer_prediction_dataset.csv"))))) {
             bufReadr.readLine();// Skip header line
             long totalCigarettesConsumedUsingParallelStreams = bufReadr.lines().parallel().map(s -> {
                 String[] stArray = s.split(",");
